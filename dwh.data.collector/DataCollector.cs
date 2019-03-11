@@ -8,6 +8,7 @@ using NLog;
 using System.Reflection;
 using dwh.data.collector.Propertyclasses;
 using dwh.data.collector.SQL;
+using dwh.data.collector.Config;
 
 namespace dwh.data.collector.ZenDesk
 {
@@ -16,7 +17,7 @@ namespace dwh.data.collector.ZenDesk
         private string _item { get; set; }
         private string _database { get; set; }
         readonly Logger Nlogger = LogManager.GetCurrentClassLogger();
-        static cThreading _th = new cThreading(AppConfig.GetInt("maxThreadsPerCore", 2), AppConfig.GetInt("maxThreadsAllowed", 10), ProcessPriorityClass.Normal, AppConfig.GetBool("useAllCores"));
+        static Threading _th = new Threading(AppConfig.GetInt("maxThreadsPerCore", 2), AppConfig.GetInt("maxThreadsAllowed", 10), ProcessPriorityClass.Normal, AppConfig.GetBool("useAllCores"));
         static readonly int curThreads = _th.activeThreads();
 
         public DataCollector(string database,string item)
@@ -64,8 +65,8 @@ namespace dwh.data.collector.ZenDesk
                         foreach (DataRow drOrganizations in dtOrganizations.Rows)
                         {
                             int _columnIndex = HelperClass.ColumnIndex(drOrganizations, "id");
-                            objSQL _params = new objSQL(drOrganizations, string.Format("Select {1}imported,lastupdate from dbo.{2} where Id = {0}", drOrganizations[_columnIndex].ToString(), _columns,this._item), _fields);
-                            WaitCallback wi = new WaitCallback(new cSQL()._zendesk);
+                            objSQL _params = new objSQL(drOrganizations, string.Format("Select {1}imported,lastupdate,s3_flag from dbo.{2} where Id = {0}", drOrganizations[_columnIndex].ToString(), _columns,this._item), _fields);
+                            WaitCallback wi = new WaitCallback(new SQL.SQL()._work);
                             _th.add2queue(ref wi, _params);
                         }
                         while (_th.activeThreads() > curThreads) { }
@@ -75,9 +76,9 @@ namespace dwh.data.collector.ZenDesk
                         foreach (DataRow drOrganizations in dtOrganizations.Rows)
                         {
                             int _columnIndex = HelperClass.ColumnIndex(drOrganizations, "id");
-                            objSQL _params = new objSQL(drOrganizations, string.Format("Select {1}imported,lastupdate from dbo.{2} where Id = {0}", drOrganizations[_columnIndex].ToString(), _columns,this._item), _fields);
-                            cSQL wi = new cSQL();
-                            wi._zendesk(_params);
+                            objSQL _params = new objSQL(drOrganizations, string.Format("Select {1}imported,lastupdate,s3_flag from dbo.{2} where Id = {0}", drOrganizations[_columnIndex].ToString(), _columns,this._item), _fields);
+                            SQL.SQL wi = new SQL.SQL();
+                            wi._work(_params);
                         }
                     }
                     _page++;

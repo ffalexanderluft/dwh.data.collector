@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace dwh.data.collector
+namespace dwh.data.collector.Config
 {
     static class AppConfig
     {

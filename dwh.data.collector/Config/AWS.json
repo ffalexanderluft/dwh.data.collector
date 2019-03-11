@@ -1,0 +1,9 @@
+{
+  "AWS": {
+    "access_key": "lr7VpeFWd/PQSjwK3bVGSAMB11FtXDb1",
+    "secret_key": "gH+iMkc9OOxVDKgiX+jWqDHN4dsxAridmHEZiDvlis3h9lwsXjWccI/SHbdkWyYh"
+  },
+  "S3": {
+    "bucket": "aws-glue-ff-dwh/import"
+  }
+}

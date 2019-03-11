@@ -6,10 +6,11 @@ using System.Reflection;
 using System.Globalization;
 using System.Linq;
 using dwh.data.collector.Propertyclasses;
+using dwh.data.collector.Config;
 
 namespace dwh.data.collector.RedShift
 {
-    public class cRedshift:IDisposable
+    public class Redshift:IDisposable
     {
         readonly Logger Nlogger = LogManager.GetCurrentClassLogger();
 
@@ -20,7 +21,7 @@ namespace dwh.data.collector.RedShift
             try
             {
                 _params = (objSQL)_p;
-                using (cRedshiftWorker sql = new cRedshiftWorker("PSQL_salesdashboard"))
+                using (RedshiftWorker sql = new RedshiftWorker("PSQL_salesdashboard"))
                 {
                     DataTable dt = new DataTable(); OdbcDataAdapter da = new OdbcDataAdapter(); DataRow dr;
                     dt.TableName = _params._tablename;
@@ -68,7 +69,7 @@ namespace dwh.data.collector.RedShift
         {
             try
             {
-                using (cRedshiftWorker sql = new cRedshiftWorker("PSQL_salesdashboard"))
+                using (RedshiftWorker sql = new RedshiftWorker("PSQL_salesdashboard"))
                 {
                     sql.ExcuteSQL(AppConfig.GetString("update_dt_dealstage","", "AWSRedshift_Statements"));
                     sql.ExcuteSQL(AppConfig.GetString("update_dt_created", "", "AWSRedshift_Statements"));

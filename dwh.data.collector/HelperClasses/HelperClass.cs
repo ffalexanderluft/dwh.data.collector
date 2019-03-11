@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Linq;
 using dwh.data.collector.Propertyclasses;
 using dwh.data.collector.RedShift;
+using dwh.data.collector.Config;
 
 namespace dwh.data.collector
 {
@@ -43,11 +44,11 @@ namespace dwh.data.collector
             }
         }
 
-        public static void GetConfigPath(string subfolder = "",string fileName = "")
+        public static void GetConfigPath(string subfolder = "Config",string fileName = "")
         {
             try
             {
-                GlobalProps._configPath = Path.Combine(Path.GetDirectoryName(typeof(dwh.data.collector.AppConfig).Assembly.Location), subfolder, fileName);
+                GlobalProps._configPath = Path.Combine(Path.GetDirectoryName(typeof(AppConfig).Assembly.Location), subfolder, fileName);
             }
             catch (Exception ex)
             {
@@ -207,7 +208,7 @@ namespace dwh.data.collector
         {
             try
             {
-                using (cRedshiftWorker sql = new cRedshiftWorker("PSQL_salesdashboard"))
+                using (RedshiftWorker sql = new RedshiftWorker("PSQL_salesdashboard"))
                 {
                     OdbcDataAdapter da = new OdbcDataAdapter();DataTable dt = new DataTable();
                     sql.GetDT("SHOW DATESTYLE", ref da, ref dt);
@@ -233,24 +234,24 @@ namespace dwh.data.collector
             }
         }
 
-        public static Type GetJTokenType(JToken value)
-        {
-            try
-            {
-                switch (value.Type)
-                {
-                    case JTokenType.Integer:
-                        return Type.GetType("System.Int64");
-                    case JTokenType.Boolean:
-                        return Type.GetType("System.Boolean");
-                    case JTokenType.Date:
-                        return Type.GetType("System.DateTime");
-                    default:
-                        return Type.GetType("System.String");
-                }
-            }
-            catch (Exception ex) {return Type.GetType("System.String"); }
-        }
+        //public static Type GetJTokenType(JToken value)
+        //{
+        //    try
+        //    {
+        //        switch (value.Type)
+        //        {
+        //            case JTokenType.Integer:
+        //                return Type.GetType("System.Int64");
+        //            case JTokenType.Boolean:
+        //                return Type.GetType("System.Boolean");
+        //            case JTokenType.Date:
+        //                return Type.GetType("System.DateTime");
+        //            default:
+        //                return Type.GetType("System.String");
+        //        }
+        //    }
+        //    catch (Exception ex) {return Type.GetType("System.String"); }
+        //}
 
         public static string ConsoleCaption(string addtionalInfo = "")
         {

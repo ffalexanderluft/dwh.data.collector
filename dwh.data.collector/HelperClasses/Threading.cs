@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace dwh.data.collector
 {
-    public class cThreading
+    public class Threading
     {
         static Logger Nlogger = LogManager.GetCurrentClassLogger();
         public int _threadsallowed { get; set; }
@@ -68,7 +68,7 @@ namespace dwh.data.collector
         /// <param name="_maxThreadsPerCore"></param>
         /// <param name="_maxThreadsTotal"></param>
         /// <param name="_prio"></param>
-        public cThreading(int _maxThreadsPerCore, int _maxThreadsTotal, ProcessPriorityClass _prio,bool useAllCores = false)
+        public Threading(int _maxThreadsPerCore, int _maxThreadsTotal, ProcessPriorityClass _prio,bool useAllCores = false)
         {
             try
             {

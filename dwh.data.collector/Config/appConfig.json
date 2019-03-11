@@ -7,7 +7,7 @@
     "DWHTest": "10.2.51.11",
     "environment": "local",
     "maxThreadsAllowed": 48,
-    "maxThreadsPerCode": 2,
+    "maxThreadsPerCode": 4,
     "multiThreading": true,
     "useAllCores": true
   }

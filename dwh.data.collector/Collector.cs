@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using dwh.data.collector.Propertyclasses;
 using dwh.data.collector.ZenDesk;
+using dwh.data.collector.Config;
 
 namespace dwh.data.collector
 {
