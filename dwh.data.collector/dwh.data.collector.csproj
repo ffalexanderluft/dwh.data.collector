@@ -28,6 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="toolBox">
+      <HintPath>..\..\..\Users\ffalexanderluft\Source\Repos\toolBox\toolBox\bin\Release\netcoreapp2.2\toolBox.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Config\ZenDesk.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -55,7 +55,6 @@ namespace dwh.data.collector
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
                 Nlogger.Error(err);
             }
-            
         }
 
         public static string GetTagetDBServer()

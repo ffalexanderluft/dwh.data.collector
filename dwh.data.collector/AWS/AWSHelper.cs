@@ -1,11 +1,7 @@
-﻿using Amazon;
-using Amazon.Runtime;
-using Amazon.Runtime.CredentialManagement;
+﻿using Amazon.Runtime.CredentialManagement;
 using dwh.data.collector.Config;
-using dwh.data.collector.Helperclasses;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
+using toolBox;
+
 
 namespace dwh.data.collector.AWS
 {
@@ -14,8 +10,8 @@ namespace dwh.data.collector.AWS
         private static void GetCredentials(ref string[] s)
         {
             Crypto crypto = new Crypto();
-            s[0] = crypto.Decrypt(AppConfig.GetString("acces_key","","AWS"));
-            s[1] = crypto.Decrypt(AppConfig.GetString("secret_key","","AWS"));
+            s[0] = crypto.Decrypt(AppConfig.GetString("acces_key","","AWS","AWS.json"));
+            s[1] = crypto.Decrypt(AppConfig.GetString("secret_key","","AWS","AWS.json"));
         }
 
         public static CredentialProfile CreateAWSProfile(ref string[] credentials)
