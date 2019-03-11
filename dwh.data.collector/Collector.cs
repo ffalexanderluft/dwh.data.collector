@@ -77,7 +77,9 @@ namespace dwh.data.collector
                 //using (ZenDeskData organizations = new ZenDeskData("ticket_metrics")) { organizations.getData<object>(); }
                 //using (ZenDeskData organizations = new ZenDeskData("users")) { organizations.getData<object>(); }
                 //using (ZenDeskData organizations = new ZenDeskData("groups")) { organizations.getData<object>(); }
-                Nlogger.Info(String.Format("Waiting for next run; timer scheduled with {0} minutes", AppConfig.GetInt("Timer", 30).ToString()));
+                string _msg = String.Format("Waiting for next run; timer scheduled with {0} minutes", AppConfig.GetInt("Timer", 30, "config", string.Concat(database, ".json")).ToString());
+                Console.WriteLine(_msg);
+                Nlogger.Info(_msg);
             }
             catch (Exception ex)
             {
