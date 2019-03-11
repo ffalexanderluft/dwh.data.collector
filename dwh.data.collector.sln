@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{877B1F7F-DD70-41BE-915A-8BBE0B2BD96D}") = "dwh.data.collector", "dwh.data.collector\dwh.data.collector.csproj", "{D68C1EEE-D149-4EAA-AB0E-DCB4621840E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D68C1EEE-D149-4EAA-AB0E-DCB4621840E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D68C1EEE-D149-4EAA-AB0E-DCB4621840E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D68C1EEE-D149-4EAA-AB0E-DCB4621840E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D68C1EEE-D149-4EAA-AB0E-DCB4621840E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0957C1A8-88E8-48C0-B6B8-99406485BE59}
+	EndGlobalSection
+EndGlobal

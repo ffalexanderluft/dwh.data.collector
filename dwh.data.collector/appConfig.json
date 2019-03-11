@@ -1,0 +1,14 @@
+{
+  "appSettings": {
+    "dbconnection": "Data Source={0};Database=ZenDesk;Application Name=marketing.dashboard.data.collector;Connection Timeout=30;Integrated Security=false;User ID=dwh_cloud;Password=Dont4get$;Min Pool Size=1;Max Pool Size=30;Connection Lifetime=10;MultipleActiveResultSets=true",
+    "DWHAWS": "3.120.167.22",
+    "DWHLOCAL": "SAGE\\SQL2016",
+    "DWHProd": "10.2.33.173",
+    "DWHTest": "10.2.51.11",
+    "environment": "local",
+    "maxThreadsAllowed": 48,
+    "maxThreadsPerCode": 2,
+    "multiThreading": true,
+    "useAllCores": true
+  }
+}

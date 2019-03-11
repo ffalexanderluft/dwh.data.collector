@@ -1,0 +1,86 @@
+{
+  "data": {
+    "organizations": {
+      "created_at": "$.organizations[*].created_at",
+      "domain_names": "$.organizations[*].domain_names",
+      "external_id": "$.organizations[*].external_id",
+      "id": "$.organizations[*].id",
+      "name": "$.organizations[*].name",
+      "product": "$.organizations[*].organization_fields.produkt",
+      "tags": "$.organizations[*].tags",
+      "updated_at": "$.organizations[*].updated_at",
+      "url": "$.organizations[*].url"
+    },
+    "tickets": {
+      "id": "$.tickets[*].id",
+      "url": "$.tickets[*].url",
+      "external_id": "$.tickets[*].external_id",
+      "channel": "$.tickets[*].via.channel",
+      "type": "$.tickets[*].type",
+      "subject": "$.tickets[*].subject",
+      "priority": "$.tickets[*].priority",
+      "status": "$.tickets[*].status",
+      "recipient": "$.tickets[*].recipient",
+      "requester_id": "$.tickets[*].requester_id",
+      "submitter_id": "$.tickets[*].submitter_id",
+      "assignee_id": "$.tickets[*].assignee_id",
+      "organization_id": "$.tickets[*].organization_id",
+      "group_id": "$.tickets[*].group_id",
+      "tags": "$.tickets[*].tags",
+      "satisfaction_rating": "$.tickets[*].satisfaction_rating.score",
+      "created_at": "$.tickets[*].created_at",
+      "updated_at": "$.tickets[*].updated_at"
+    },
+    "ticket_metrics": {
+      "id": "$.ticket_metrics[*].id",
+      "ticket_id": "$.ticket_metrics[*].ticket_id",
+      "url": "$.ticket_metrics[*].url",
+      "group_stations": "$.ticket_metrics[*].group_stations",
+      "assignee_stations": "$.ticket_metrics[*].assignee_stations",
+      "reopens": "$.ticket_metrics[*].reopens",
+      "replies": "$.ticket_metrics[*].replies",
+      "assignee_updated_at": "$.ticket_metrics[*].assignee_updated_at",
+      "requester_updated_at": "$.ticket_metrics[*].requester_updated_at",
+      "status_updated_at": "$.ticket_metrics[*].status_updated_at",
+      "initially_assigned_at": "$.ticket_metrics[*].initially_assigned_at",
+      "assigned_at": "$.ticket_metrics[*].assigned_at",
+      "solved_at": "$.ticket_metrics[*].solved_at",
+      "latest_comment_added_at": "$.ticket_metrics[*].latest_comment_added_at",
+      "reply_time_in_minutes": "$.ticket_metrics[*].reply_time_in_minutes.business",
+      "first_resolution_time_in_minutes": "$.ticket_metrics[*].first_resolution_time_in_minutes.business",
+      "full_resolution_time_in_minutes": "$.ticket_metrics[*].full_resolution_time_in_minutes.business",
+      "agent_wait_time_in_minutes": "$.ticket_metrics[*].agent_wait_time_in_minutes.business",
+      "requester_wait_time_in_minutes": "$.ticket_metrics[*].requester_wait_time_in_minutes.business",
+      "created_at": "$.ticket_metrics[*].created_at",
+      "updated_at": "$.ticket_metrics[*].updated_at"
+    },
+    "users": {
+      "id": "$.users[*].id",
+      "name": "$.users[*].name",
+      "organization_id": "$.users[*].organization_id",
+      "role": "$.users[*].role",
+      "last_login_at": "$.users[*].last_login_at"
+    },
+    "groups": {
+      "created_at": "$.groups[*].created_at",
+      "deleted": "$.groups[*].deleted",
+      "id": "$.groups[*].id",
+      "name": "$.groups[*].name",
+      "updated_at": "$.groups[*].updated_at",
+      "url": "$.groups[*].url"
+    }
+  },
+  "config": {
+    "password": "1BimsConsultant!",
+    "request_url": {
+      "ticket_metrics": "https://flowfactservice.zendesk.com/api/v2/ticket_metrics.json?page={0}",
+      "organizations": "https://flowfactservice.zendesk.com/api/v2/organizations.json?page={0}",
+      "tickets": "https://flowfactservice.zendesk.com/api/v2/tickets.json?include=replies&page={0}",
+      "users": "https://flowfactservice.zendesk.com/api/v2/users.json?page={0}",
+      "groups": "https://flowfactservice.zendesk.com/api/v2/groups.json?page={0}"
+    },
+    "url_domain": "https://flowfactservice.zendesk.com",
+    "username": "consulting@flowfact.de",
+    "timer": 60
+  }
+}
