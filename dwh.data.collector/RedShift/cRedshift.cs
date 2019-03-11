@@ -30,11 +30,8 @@ namespace dwh.data.collector.RedShift
                         dr = dt.NewRow();
                         for (i = 0; i < _params._fields.Count(); i++)
                         {
-                            //if (_params._dr[i].ToString().Replace("[", "").Replace("]", "").Length > 0)
                             if (_params._dr[i].ToString().Length > 0)
                             {
-                                //buffer = @_params._dr[i].ToString().Replace("[", "").Replace("]", "");
-                                //dr[i] = buffer.IsNumeric() == true ? (object)buffer.String2Float(2) : (object)buffer;
                                 dr[i] = @_params._dr[i];
                             }
                         }
@@ -49,8 +46,6 @@ namespace dwh.data.collector.RedShift
                         {
                             if (_params._dr[i].ToString().Replace("[", "").Replace("]", "").Length > 0)
                             {
-                                //buffer = @_params._dr[i].ToString().Replace("[", "").Replace("]", "");
-                                //dr[i] = buffer.IsNumeric() == true ? (object)buffer.String2Float(2) : (object)buffer;
                                 dr[i] = @_params._dr[i];
                             }
                         }
@@ -62,7 +57,6 @@ namespace dwh.data.collector.RedShift
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }
@@ -83,7 +77,6 @@ namespace dwh.data.collector.RedShift
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }

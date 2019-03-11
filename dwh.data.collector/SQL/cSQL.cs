@@ -43,7 +43,6 @@ namespace dwh.data.collector.SQL
                             if (_params._dr[i].ToString().Replace("[", "").Replace("]", "").Length > 0)
                             {
                                 _buffer = @_params._dr[i].ToString().Replace("[", "").Replace("]", "").Trim();
-                                //_sb.Append(_dt.Columns[i].ColumnName).Append(":").Append(_buffer.ToString()).Append(Environment.NewLine);
                                 _dr[i] = _buffer.IsNumeric() == true ? (object)_buffer.String2Float(2) : (object)_buffer;
                             }
                         }
@@ -61,7 +60,7 @@ namespace dwh.data.collector.SQL
                                 _dr[i] = _buffer.IsNumeric() == true ? (object)_buffer.String2Float(2) : (object)_buffer;
                             }
                         }
-                        _dr["lastupdate"] = DateTime.Now;
+                        //_dr["lastupdate"] = DateTime.Now;
                     }
                     sql.UpdateDT(ref _da, ref _dt); 
                 }
@@ -69,7 +68,6 @@ namespace dwh.data.collector.SQL
             catch (Exception ex)
             {
                 string err = string.Format("{0} - {1}{2}{3}", ((objSQL)_p)._sql, ex.ToString(), Environment.NewLine, MethodBase.GetCurrentMethod().Name);
-                //if (System.Diagnostics.Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }

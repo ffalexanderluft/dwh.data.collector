@@ -18,7 +18,6 @@ namespace dwh.data.collector
 
         string _url;
         string _request;
-        //bool _credentials;
         static IJsonServiceClient client;
         JObject _rss;
         
@@ -62,14 +61,10 @@ namespace dwh.data.collector
                                 {
                                     dr[_jp.Name] = _jp.Value;
                                 }
-                                //dr[fields[j]] = ret[j].ElementAt(0).ToString();
-                                //if (verbose == true) { Console.WriteLine(string.Format("{0}: {1}", fields[j], ret[j].ElementAt(0).ToString())); }
                             }
                             catch (Exception ex)
                             {
-                                //dr[fields[j]] = System.DBNull.Value;
                                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                                //if (System.Diagnostics.Debugger.IsAttached == true) { Console.WriteLine(err); }
                                 Nlogger.Error(err);
                             }
                         }
@@ -85,7 +80,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return null;
             }
@@ -110,7 +104,6 @@ namespace dwh.data.collector
         {
             this._url = url;
             this._request = request;
-            //this._credentials = credentials;
             client = new JsonServiceClient(url)
             {
                 UserName = username,

@@ -57,7 +57,6 @@ namespace dwh.data.collector.ZenDesk
                     String.Format(AppConfig.GetString(this._item,"", "Config,request_url",string.Concat(this._database,".json")), _page.ToString()),
                     AppConfig.GetString("username", "", "config",string.Concat(this._database,".json")), AppConfig.GetString("password", "", "config",string.Concat(this._database,".json")));
                     DataTable dtOrganizations = getData.GetDataTable(_JSONPath, _fields);
-                    //System.Diagnostics.Debugger.Break();
                     if (dtOrganizations == null) { break; }
                     _count = dtOrganizations.Rows.Count;
                     if (AppConfig.GetBool("multiThreading") == true)
@@ -69,10 +68,7 @@ namespace dwh.data.collector.ZenDesk
                             WaitCallback wi = new WaitCallback(new cSQL()._zendesk);
                             _th.add2queue(ref wi, _params);
                         }
-                        while (_th.activeThreads() > curThreads)
-                        {
-                            //if (Debugger.IsAttached == true) { Console.WriteLine("{0} threads active....", (_th.activeThreads() - curThreads).ToString()); }
-                        }
+                        while (_th.activeThreads() > curThreads) { }
                     }
                     else
                     {
@@ -90,7 +86,6 @@ namespace dwh.data.collector.ZenDesk
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }

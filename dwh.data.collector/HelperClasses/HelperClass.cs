@@ -31,16 +31,13 @@ namespace dwh.data.collector
             try
             {
                 var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-                //Regex appPathMatcher = new Regex(@"(?<!fil)[A-Za-z]:\\+[\S\s]*?(?=\\+bin)");
                 Regex appPathMatcher = new Regex(@"(?<!fil)[A-Za-z]:\\+[\S\s]*");
                 var appRoot = appPathMatcher.Match(exePath).Value;
-                //Nlogger.Trace(String.Format("ApplicationRoot at: {0}", appRoot));
                 return appRoot;
             }
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return "";
             }
@@ -51,15 +48,11 @@ namespace dwh.data.collector
             try
             {
                 GlobalProps._configPath = Path.Combine(Path.GetDirectoryName(typeof(dwh.data.collector.AppConfig).Assembly.Location), subfolder, fileName);
-                //if (GlobalProps._configPath == "") { GlobalProps._configPath = _path; }
-                //return _path;
             }
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
-                //return "";
             }
             
         }
@@ -97,7 +90,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return _dbserver;
             }
@@ -134,7 +126,6 @@ namespace dwh.data.collector
                 {
                     string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
                     if (AppConfig.GetBool("Log2Disk", false) == true) { HelperClass.LogIt(err, MethodBase.GetCurrentMethod().Name); }
-                    //Nlogger.Error(err);
                 }
             }
             lCn.Clear();
@@ -163,7 +154,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }
@@ -209,7 +199,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }
@@ -238,7 +227,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 GlobalProps._ci = CultureInfo.InvariantCulture;
                 GlobalProps._dateformat = GlobalProps._ci.DateTimeFormat;

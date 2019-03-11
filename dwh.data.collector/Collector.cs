@@ -31,7 +31,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return null;
             }
@@ -48,7 +47,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return null;
             }
@@ -72,11 +70,6 @@ namespace dwh.data.collector
                         Nlogger.Info(String.Format("{0} processed - duration {1}:{2}:{3}", _obj._key, _duration.Hours.ToString("00"), _duration.Minutes.ToString("00"), _duration.Seconds.ToString("00")));
                     }
                 }
-                //using (ZenDeskData organizations = new ZenDeskData("organizations")) { organizations.getData<object>(); }
-                //using (ZenDeskData organizations = new ZenDeskData("tickets")) { organizations.getData<object>(); }
-                //using (ZenDeskData organizations = new ZenDeskData("ticket_metrics")) { organizations.getData<object>(); }
-                //using (ZenDeskData organizations = new ZenDeskData("users")) { organizations.getData<object>(); }
-                //using (ZenDeskData organizations = new ZenDeskData("groups")) { organizations.getData<object>(); }
                 string _msg = String.Format("Waiting for next run; timer scheduled with {0} minutes", AppConfig.GetInt("Timer", 30, "config", string.Concat(database, ".json")).ToString());
                 Console.WriteLine(_msg);
                 Nlogger.Info(_msg);
@@ -84,7 +77,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
             }
         }

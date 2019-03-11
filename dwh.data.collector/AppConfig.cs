@@ -40,7 +40,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (System.Diagnostics.Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return default_value;
             }
@@ -76,7 +75,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (System.Diagnostics.Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return default_value;
             }
@@ -110,7 +108,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (System.Diagnostics.Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return default_value;
             }
@@ -153,7 +150,6 @@ namespace dwh.data.collector
             catch (Exception ex)
             {
                 string err = string.Format("{0}: {1}", MethodBase.GetCurrentMethod().Name, ex.ToString());
-                //if (System.Diagnostics.Debugger.IsAttached == true) { Console.WriteLine(err); }
                 Nlogger.Error(err);
                 return null;
             }
@@ -176,13 +172,10 @@ namespace dwh.data.collector
                         _cv._metric = _ics.Key == "metric" ? _ics.Value : _cv._metric;
                         _cv._dimension = _ics.Key == "dimensions" ? _ics.Value.Split(",") : _cv._dimension;
                         _cv._enabled = _ics.Key == "enabled" ? Convert.ToBoolean(_ics.Value) : _cv._enabled;
-                        //System.Diagnostics.Debugger.Break();
                     }
                     if (_cv._enabled == true) { values.Add(_cv); }
-                    //System.Diagnostics.Debugger.Break();
                 }
             }
-            //System.Diagnostics.Debugger.Break();
             return values;
         }
 
